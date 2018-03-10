@@ -1,16 +1,16 @@
 "use strict"
 
-var videoCart = document.getElementById("videoCart");
-var processorType = document.getElementById("processorType");
-var frequence = document.getElementById("frequence");
-var manufacture = document.getElementById("manufacture");
-var bitDepth = document.getElementById("bitDepth");
-var power = document.getElementById("power");
-var amount = document.getElementById("amount");
-var weight = document.getElementById("weight");
-var screen = document.getElementById("screen");
-var id = getParam("id");
-var selectedValue = document.getElementById("selectBox");
+const videoCart = document.getElementById("videoCart");
+const processorType = document.getElementById("processorType");
+const frequence = document.getElementById("frequence");
+const manufacture = document.getElementById("manufacture");
+const bitDepth = document.getElementById("bitDepth");
+const power = document.getElementById("power");
+const amount = document.getElementById("amount");
+const weight = document.getElementById("weight");
+const screen = document.getElementById("screen");
+const id = getParam("id");
+const selectedValue = document.getElementById("selectBox");
 
 function GenerateClass(comp, type){
     if(type == '0'){
@@ -31,12 +31,12 @@ function GenerateClass(comp, type){
 }
 
 function getParam(name) {
-    var param = location.search.split(name + '=')[1];
+    const param = location.search.split(name + '=')[1];
     return param !== undefined ? param.split('&')[0] : null;
 }
 
 function changeType() {
-    var types = selectedValue.options[selectBox.selectedIndex].value;
+    const types = selectedValue.options[selectBox.selectedIndex].value;
     if(types == "0"){
         document.getElementById("amountDiv").style.display='none';
         document.getElementById("powerDiv").style.display='none';
@@ -53,17 +53,17 @@ function changeType() {
 
 function GetComputer(){
     if(id!=null){
-        var func = function() {
+        const func = function() {
             if (this.readyState == 4 && this.status == 200) {
-                var obj = JSON.parse(this.responseText);
+                const obj = JSON.parse(this.responseText);
                 if(obj["Amount"]!= undefined){
-                    var comp = new Server();
+                    const comp = new Server();
                     comp.jsonToObject(obj);
                     GenerateClass(comp,1);
                     changeType();
                 }
                 else{
-                    var comp = new Ultrabook();
+                    const comp = new Ultrabook();
                     comp.jsonToObject(obj);
                     GenerateClass(comp,0);
                     changeType();
@@ -74,10 +74,10 @@ function GetComputer(){
 
 function GenerateComp(type){
     if(type == '0'){
-        var comp = new Ultrabook(weight.value, screen.value);
+        const comp = new Ultrabook(weight.value, screen.value);
     }
     else{
-        var comp = new Server(amount.value, power.value);
+        const comp = new Server(amount.value, power.value);
     }
     comp.setFrequence(frequence.value);
     comp.setVideoCart(videoCart.value);
@@ -101,7 +101,7 @@ function reset(){
 }
 
 function Save(type){
-    var comp = GenerateComp(type);
+    const comp = GenerateComp(type);
     if(id!=null) Put(id,comp);
     else Post(comp);
     reset();

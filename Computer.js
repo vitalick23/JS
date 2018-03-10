@@ -1,12 +1,12 @@
 "use strict"
 
 function Computer() {
-    var Id;
-    var ProcessorType;
-    var Frequence;
-    var Manufacture;
-    var VideoCart ;
-    var BitDepth;
+    let Id;
+    let ProcessorType;
+    let Frequence;
+    let Manufacture;
+    let VideoCart ;
+    let BitDepth;
 }
 
 Computer.prototype.getProcessorType = function(){

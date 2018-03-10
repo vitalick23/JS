@@ -8,7 +8,7 @@ function Server(amount, pover){
 Server.prototype = Object.create(Computer.prototype);
 
 Server.prototype.jsonToObject = function(json){
-    var object = json;
+    const object = json;
     this.Id = object["Id"];
     this.ProcessorType = object["ProcessorType"];
     this.VideoCart = object["VideoCart"];

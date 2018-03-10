@@ -8,7 +8,7 @@ function Ultrabook(weight, screen){
 Ultrabook.prototype = Object.create(Computer.prototype);
 
 Ultrabook.prototype.jsonToObject = function(json){
-    var object = json;
+    const object = json;
     this.Id = object["id"];
     this.ProcessorType = object["ProcessorType"];
     this.VideoCart = object["VideoCart"];

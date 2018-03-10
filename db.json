@@ -5,7 +5,7 @@
       "Screen": "123px",
       "Frequence": "123G",
       "VideoCart": "123",
-      "ProcessorType": "123",
+      "ProcessorType": "123321",
       "Manufacture": "134",
       "BitDepth": "123",
       "id": 3
@@ -29,16 +29,6 @@
       "Manufacture": "123",
       "BitDepth": "123",
       "id": 5
-    },
-    {
-      "Weight": "123",
-      "Screen": "123px",
-      "Frequence": "123G",
-      "VideoCart": "123",
-      "ProcessorType": "123122222222",
-      "Manufacture": "123",
-      "BitDepth": "123",
-      "id": 6
     },
     {
       "Amount": "123",

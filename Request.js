@@ -1,31 +1,38 @@
 "use strict"
 
+var methods = {
+    GET: "GET",
+    PUT: "PUT",
+    POST: "POST",
+    DELETE: "DELETE"
+};
+
 var url = "http://localhost:3000/posts/";
 function Get(id, func){
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = func;
-    xhr.open("GET", url + id, true);
+    xhr.open(methods.GET, url + id, true);
     xhr.send();
 }
 
 function GetAll(func){
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = func;
-    xhr.open("GET", url, true);
+    xhr.open(methods.GET, url, true);
     xhr.send();
 }
 
 function Post(computer){
-    var xhr = new XMLHttpRequest();
-    xhr.open("Post", url, true);
+    const xhr = new XMLHttpRequest();
+    xhr.open(methods.POST, url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(computer));
     alert("Saved");
 }
 
 function Put(id, computer){
-    var xhr = new XMLHttpRequest();
-    xhr.open("Put", url + id, true);
+    const xhr = new XMLHttpRequest();
+    xhr.open(methods.PUT, url + id, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(computer));
     alert("Edit");
@@ -33,8 +40,8 @@ function Put(id, computer){
 
 function Delete(id, func){
     if(confirm("Delete this computer?")){
-        var xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = func;
-        xhr.open("Delete", url +"/"+ id, true);
+        xhr.open(methods.DELETE, url +"/"+ id, true);
         xhr.send();
     }}

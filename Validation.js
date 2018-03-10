@@ -1,16 +1,16 @@
 function validation (form, type) {
-    var elems = form.elements;
-    var ret = true;
+    const elems = form.elements;
+    const ret = true;
 
-    var validvideoCart = document.getElementById("validVideoCart");
-    var validProcessortypy = document.getElementById("validProcessorType");
-    var validFrequence = document.getElementById("validFrequence");
-    var validBitDepth = document.getElementById("validBitDepth");
-    var validManufacture = document.getElementById("validManufacture");
-    var validAmount = document.getElementById("validAmount");
-    var validpower = document.getElementById("validPower");
-    var validweight = document.getElementById("validWeight");
-    var validScreen = document.getElementById("validScreen")
+    const validvideoCart = document.getElementById("validVideoCart");
+    const validProcessortypy = document.getElementById("validProcessorType");
+    const validFrequence = document.getElementById("validFrequence");
+    const validBitDepth = document.getElementById("validBitDepth");
+    const validManufacture = document.getElementById("validManufacture");
+    const validAmount = document.getElementById("validAmount");
+    const validpower = document.getElementById("validPower");
+    const validweight = document.getElementById("validWeight");
+    const validScreen = document.getElementById("validScreen")
 
     resetError(validvideoCart);
     if (elems.namevideoCart.value == "" || elems.namevideoCart.value.trim() == '') {
