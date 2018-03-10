@@ -1,60 +1,64 @@
 "use strict"
 
-function Computer() {
-    let Id;
-    let ProcessorType;
-    let Frequence;
-    let Manufacture;
-    let VideoCart ;
-    let BitDepth;
-}
-
-Computer.prototype.getProcessorType = function(){
-    return this.ProcessorType;
-}
-
-Computer.prototype.setProcessorType = function(processorType){
-    this.ProcessorType = processorType;
-}
+class Computer {
+    constructor(initArray) {
+        let {id, pro, fre, man, vid, bit} = initArray;
+        this.id = id;
+        this.processorType = pro;
+        this.frequence = fre;
+        this.manufacture = man;
+        this.videoCart = vid;
+        this.bitDepth = bit;
+    }
 
 
-Computer.prototype.getFrequence = function(){
-    return this.Frequence;
-}
+    get ProcessorType() {
+        return this.processorType;
+    }
 
-Computer.prototype.setFrequence = function(frequence){
-    this.Frequence = frequence;
-}
-
-Computer.prototype.getManufacture = function(){
-    return this.Manufacture;
-}
-
-Computer.prototype.setManufacture = function(manufacture){
-    this.Manufacture = manufacture;
-}
-
-Computer.prototype.getVideoCart = function(){
-    return this.VideoCart;
-}
-
-Computer.prototype.setVideoCart = function(videoCart){
-    this.VideoCart = videoCart;
-}
+    set ProcessorType(processorType) {
+        this.processorType = processorType;
+    }
 
 
-Computer.prototype.getId = function(){
-    return this.Id;
-}
+    get Frequence() {
+        return this.frequence;
+    }
 
-Computer.prototype.setId = function(id){
-    this.Id = id;
-}
+    set Frequence(frequence) {
+        this.frequence = frequence;
+    }
 
-Computer.prototype.getBitDepth = function(){
-    return this.BitDepth;
-}
+    get Manufacture() {
+        return this.manufacture;
+    }
 
-Computer.prototype.setBitDepth = function(bitDepth){
-    this.BitDepth = bitDepth;
+    set Manufacture(manufacture) {
+        this.manufacture = manufacture;
+    }
+
+    get VideoCart() {
+        return this.videoCart;
+    }
+
+    set VideoCart(videoCart) {
+        this.videoCart = videoCart;
+    }
+
+
+    get Id() {
+        return this.id;
+    }
+
+    set Id(id) {
+        this.id = id;
+    }
+
+    get BitDepth() {
+        return this.bitDepth;
+    }
+
+    set BitDepth(bitDepth) {
+        this.bitDepth = bitDepth;
+    }
 }

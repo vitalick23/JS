@@ -1,12 +1,28 @@
 "use strict"
 
-function Server(amount, pover){
-    Computer.call(this);
-    this.Amount = amount;
-    this.Power = pover;
-}
-Server.prototype = Object.create(Computer.prototype);
+class Server extends Computer {
+    constructor(initarray) {
+        super(initarray);
+        this.amount = initarray.amount;
+        this.power = initarray.power;
+    }
 
+    get Amount (){
+        return this.amount;
+    }
+
+    set Amount (amount){
+        this.amount = amount;
+    }
+
+    get Power(){
+        return this.power;
+    }
+
+    set Power (power){
+        this.power = power;
+    }
+}
 Server.prototype.jsonToObject = function(json){
     const object = json;
     this.Id = object["Id"];
@@ -19,18 +35,4 @@ Server.prototype.jsonToObject = function(json){
     this.Power = object["Power"];
 }
 
-Server.prototype.getAmount = function(){
-    return this.Amount;
-}
 
-Server.prototype.setAmount = function(amount){
-    this.Amount = amount;
-}
-
-Server.prototype.getPower = function(){
-    return this.Power;
-}
-
-Server.prototype.setPover = function(power){
-    this.Power = power;
-}

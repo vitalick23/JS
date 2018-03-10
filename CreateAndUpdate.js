@@ -14,20 +14,20 @@ const selectedValue = document.getElementById("selectBox");
 
 function GenerateClass(comp, type){
     if(type == '0'){
-        weight.value = comp.getWeight();
-        screen.value = comp.getScreen();
+        weight.value = comp.Weight;
+        screen.value = comp.Screen;
     }
     else{
 
-        amount.value = comp.getAmount();
-        power.value = comp.getPower();
+        amount.value = comp.Amount;
+        power.value = comp.Power;
     }
     selectedValue.selectedIndex = type;
-    videoCart.value = comp.getVideoCart();
-    processorType.value = comp.getProcessorType();
-    frequence.value = comp.getFrequence();
-    bitDepth.value = comp.getBitDepth();
-    manufacture.value = comp.getManufacture();
+    videoCart.value = comp.VideoCart;
+    processorType.value = comp.ProcessorType;
+    frequence.value = comp.Frequence;
+    bitDepth.value = comp.BitDepth;
+    manufacture.value = comp.Manufacture;
 }
 
 function getParam(name) {
@@ -57,13 +57,13 @@ function GetComputer(){
             if (this.readyState == 4 && this.status == 200) {
                 const obj = JSON.parse(this.responseText);
                 if(obj["Amount"]!= undefined){
-                    const comp = new Server();
+                    const comp = new Server(obj);
                     comp.jsonToObject(obj);
                     GenerateClass(comp,1);
                     changeType();
                 }
                 else{
-                    const comp = new Ultrabook();
+                    const comp = new Ultrabook(obj);
                     comp.jsonToObject(obj);
                     GenerateClass(comp,0);
                     changeType();

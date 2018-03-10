@@ -14,16 +14,7 @@ function getComputer(search = ""){
             if (this.readyState == 4 && this.status == 200) {
                 var obj = JSON.parse(this.responseText);
                 let index = 0;
-                for(index; index < obj.length;)
-                {
-                    if(obj[index].ProcessorType == search) {
-                        index++;
-                    }
-                    else {
-                        obj.splice(index, 1);
-                    }
-                }
-                addTable(obj);
+                addTable( searchComp(obj,search));
             };
         };
 

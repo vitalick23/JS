@@ -26,6 +26,9 @@
 <script type="text/javascript">
     getComputer();
     function Search() {
-        SearchComputer(document.getElementById("search").value)
+        const a = document.getElementById("search").value;
+        if(a == "")
+        SearchComputer("123")
+        else SearchComputer(a)
     }
 </script>
