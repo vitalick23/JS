@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<form name="person">
+    <div class="form-group; center-block" style="width:40%; margin-top: 4%">
+        <a href="Index.html">Main</a> <br/>
+        Type:
+        <br/>
+        <select class="form-control" id="selectBox" title="Type" disabled="disabled">
+            <option value="0">Ultrabook</option>
+            <option value="1">Server</option>
+        </select>
+        <br/>
+        <div>
+            ProcessorType: <input id="processorType" class="form-control" type="text"  disabled="disabled"><br/>
+            VideoCart: <input id="videoCart" class="form-control" type="text"  disabled="disabled"> <br/>
+            Frequence: <input id="frequence" class="form-control" type="text"  disabled="disabled"> <br/>
+            Manufacture: <input id="manufacture" class="form-control"  disabled="disabled"> <br/>
+            BitDepth: <input id="bitDepth" class="form-control"   disabled="disabled"> <br/>
+            <div id="amountDiv">Amount: <input id="amount"  class="form-control" type="text"  disabled="disabled"><br/></div>
+            <div id="powerDiv">Power: <input id="power"  class="form-control" type="text"  disabled="disabled"><br/></div>
+            <div id="weightDiv">Weight: <input id="weight"  class="form-control" type="text"  disabled="disabled"><br/></div>
+            <div id="screenDiv">Screen: <input id="screen"  class="form-control" type="text"  disabled="disabled"><br/></div>
+        </div>
+    </div>
+</form>
+
+<script src="Computer.js"></script>
+<script src="CreateAndUpdate.js"></script>
+<script src="ultrabook.js"></script>
+<script src="Server.js"></script>
+<script src="Request.js"></script>
+<script src="IndexTable.js"></script>
+<script type="text/javascript">
+GetComputer();
+</script>

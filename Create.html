@@ -1,0 +1,77 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        td select,
+        td input {
+            width: 150px;
+        }
+        .errortext{
+            color:red;
+        }
+        .error input {
+            border: 1px solid red;
+        }
+        .outer {
+            text-align: center;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<form name="computer">
+    <div class="form-group; center-block" style="width:40%; margin-top: 4%">
+        <a href="Index.html">Main</a> <br/>
+        Type:
+        <br/>
+        <select class="form-control" id="selectBox" title="Type"  onchange="changeType();">
+            <option value="0">Ultrabook</option>
+            <option value="1">Server</option>
+        </select>
+        <br/>
+        <div>
+            ProcessorType: <div id="validProcessorType" class="errortext"></div><input id="processorType" name="processorType"class="form-control" type="text" ><br/>
+            VideoCart:<div id="validVideoCart" class="errortext"></div><input id="videoCart" name="namevideoCart" class="form-control" type="text" > <br/>
+            Frequence:<div id="validFrequence" class="errortext"></div> <input id="frequence" name = "Frequence" class="form-control" type="text" > <br/>
+            Manufacture:<div id="validManufacture" class="errortext"></div> <input id="manufacture" name="Manufacture" class="form-control"> <br/>
+            BitDepth:<div id="validBitDepth" class="errortext"></div> <input id="bitDepth" name ="BitDepth" class="form-control"  > <br/>
+            <div id="amountDiv">Amount:
+                <div id="validAmount" class="errortext"></div>
+                <input id="amount" name="amount" class="form-control" type="text"><br/>
+            </div>
+            <div id="powerDiv">Power:
+                <div id="validPower" class="errortext"></div>
+                <input id="power" name="power" class="form-control" type="text"><br/>
+            </div>
+            <div id="weightDiv">Weight:
+                <div id="validWeight" class="errortext"></div>
+                <input id="weight" name="weight"  class="form-control" type="text"><br/>
+            </div>
+            <div id="screenDiv">Screen:
+                <div id="validScreen" class="errortext"></div>
+                <input id="screen" name="screen" class="form-control" type="text" ><br/>
+            </div>
+            <input type="button" value="Save" onclick="saveComputer(this.form)" class="form-control btn-primary">
+        </div>
+    </div>
+</form>
+<script src="Computer.js"></script>
+<script src="CreateAndUpdate.js"></script>
+<script src="ultrabook.js"></script>
+<script src="Server.js"></script>
+<script src="Request.js"></script>
+<script src="IndexTable.js"></script>
+<script src="Validation.js"></script>
+<script type="text/javascript">
+    var selectedValue = document.getElementById("selectBox");
+    changeType();
+    function saveComputer(form){
+       if(validation(form, selectedValue.options[selectBox.selectedIndex].value))
+        Save(selectedValue.options[selectBox.selectedIndex].value);
+    }
+    function onInvalid(msg) {
+        alert(msg);
+    }
+</script>
+</html>
