@@ -1,5 +1,5 @@
 function SearchComputer(str) {
-    var dd = document.getElementById("mytable").innerHTML ="";
+    ClearTable();
     console.log(str);
     getComputer(str);
 }
@@ -9,4 +9,8 @@ function searchComp(obj,str) {
             s.ProcessorType == str ||
             s.Frequence == str ||
             s.VideoCart == str );
+}
+
+function ClearTable() {
+    var dd = document.getElementById("mytable").innerHTML ="";
 }

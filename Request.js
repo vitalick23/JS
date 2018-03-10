@@ -7,41 +7,95 @@ const [
     DELETE = "DELETE"
 ] = [];
 
-var url = "http://localhost:3000/posts/";
+const url = "http://localhost:3000/posts";
 function Get(id, func){
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = func;
-    xhr.open(GET, url + id, true);
-    xhr.send();
+    let options = {
+        method: GET
+    };
+    const URL = url +'/'+id;
+    fetch(URL, options)
+        .then(function(response) {
+            console.log(response.status);
+            if (response.status != 200) {
+                throw new Error(`${response.status}: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(function(json) {
+            func(json);
+        })
+        .catch(console.log);
 }
 
 function GetAll(func){
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = func;
-    xhr.open(GET, url, true);
-    xhr.send();
-}
+    let options = {
+        method: GET
+    };
+    fetch(url, options)
+        .then(function(response) {
+            console.log(response.status);
+            if (response.status != 200) {
+                throw new Error(`${response.status}: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(function(json) {
+            func(json);
+        })
+        .catch(console.log);
+};
 
 function Post(computer){
-    const xhr = new XMLHttpRequest();
-    xhr.open(POST, url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify(computer));
+    let options = {
+        method: POST,
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(computer)
+    }
+    fetch(url, options)
+        .then(function(response) {
+            if (response.status != 200) {
+                throw new Error(`${response.status}: ${response.statusText}`);
+            }
+        })
+        .catch(console.log);
     alert("Saved");
 }
 
 function Put(id, computer){
-    const xhr = new XMLHttpRequest();
-    xhr.open(PUT, url + id, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify(computer));
+    let options = {
+        method: PUT,
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(computer)
+    }
+    const URL = url +'/'+id;
+    fetch(URL, options)
+        .then(function(response) {
+            if (response.status != 200) {
+                throw new Error(`${response.status}: ${response.statusText}`);
+            }
+        })
+        .catch(console.log);
     alert("Edit");
 }
 
-function Delete(id, func){
-    if(confirm("Delete this computer?")){
-        const xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = func;
-        xhr.open(DELETE, url +"/"+ id, true);
-        xhr.send();
-    }}
+function Delete(id, func) {
+    if (confirm("Delete this computer?")) {
+        let options = {
+            method: DELETE
+        };
+        const URL = url + '/' + id;
+        fetch(URL, options)
+            .then(function (response) {
+                if (response.status != 200) {
+                    throw new Error(`${response.status}: ${response.statusText}`);
+                }
+                ClearTable();
+                getComputer();
+            })
+            .catch(console.log);
+    }
+}

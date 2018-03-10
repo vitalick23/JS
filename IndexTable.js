@@ -2,20 +2,13 @@
 
 function getComputer(search = ""){
     if(search == "") {
-        var func = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var obj = JSON.parse(this.responseText);
-                addTable(obj);
-            };
+        var func = function (obj) {
+            addTable(obj);
         };
     }
     else {
-        var func = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var obj = JSON.parse(this.responseText);
-                let index = 0;
+        var func = function (obj) {
                 addTable( searchComp(obj,search));
-            };
         };
 
     }

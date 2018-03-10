@@ -53,9 +53,7 @@ function changeType() {
 
 function GetComputer(){
     if(id!=null){
-        const func = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                const obj = JSON.parse(this.responseText);
+        const func = function(obj) {
                 if(obj["Amount"]!= undefined){
                     const comp = new Server(obj);
                     comp.jsonToObject(obj);
@@ -68,9 +66,10 @@ function GetComputer(){
                     GenerateClass(comp,0);
                     changeType();
                 }
-            }};
-        Get(id, func);
-    }}
+
+            }
+        Get(id, func);};
+    }
 
 function GenerateComp(type){
     if(type == '0'){

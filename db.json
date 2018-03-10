@@ -1,24 +1,14 @@
 {
   "posts": [
     {
-      "Amount": "123",
-      "Power": "123",
-      "Frequence": "123123G",
-      "VideoCart": "2323",
-      "ProcessorType": "213",
-      "Manufacture": "123123",
-      "BitDepth": "123",
-      "id": 7
-    },
-    {
       "Weight": "123",
       "Screen": "123px",
       "Frequence": "123G",
       "VideoCart": "123",
-      "ProcessorType": "1111111111",
+      "ProcessorType": "123",
       "Manufacture": "123",
       "BitDepth": "123",
-      "id": 8
+      "id": 9
     }
   ],
   "comments": [],
