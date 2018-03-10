@@ -6,7 +6,7 @@ function SearchComputer(str) {
 
 function searchComp(obj,str) {
     return obj.filter(s =>
-            s.processorType == str ||
-            s.frequence == str ||
+            s.ProcessorType == str ||
+            s.Frequence == str ||
             s.VideoCart == str );
 }

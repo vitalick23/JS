@@ -1,44 +1,24 @@
 {
   "posts": [
     {
-      "Weight": "123321123",
-      "Screen": "123px",
-      "Frequence": "123G",
-      "VideoCart": "123",
-      "ProcessorType": "123321",
-      "Manufacture": "134",
-      "BitDepth": "123",
-      "id": 3
-    },
-    {
-      "Weight": "123weq",
-      "Screen": "123px",
-      "Frequence": "123G",
-      "VideoCart": "123",
-      "ProcessorType": "123",
-      "Manufacture": "134",
-      "BitDepth": "123",
-      "id": 4
-    },
-    {
-      "Weight": "123",
-      "Screen": "12333333px",
-      "Frequence": "123G",
-      "VideoCart": "qwe",
-      "ProcessorType": "qwe",
-      "Manufacture": "123",
-      "BitDepth": "123",
-      "id": 5
-    },
-    {
       "Amount": "123",
       "Power": "123",
       "Frequence": "123123G",
       "VideoCart": "2323",
-      "ProcessorType": "123",
+      "ProcessorType": "213",
       "Manufacture": "123123",
       "BitDepth": "123",
       "id": 7
+    },
+    {
+      "Weight": "123",
+      "Screen": "123px",
+      "Frequence": "123G",
+      "VideoCart": "123",
+      "ProcessorType": "1111111111",
+      "Manufacture": "123",
+      "BitDepth": "123",
+      "id": 8
     }
   ],
   "comments": [],

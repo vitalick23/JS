@@ -74,18 +74,33 @@ function GetComputer(){
 
 function GenerateComp(type){
     if(type == '0'){
-        const comp = new Ultrabook(weight.value, screen.value);
+        const comp = {
+            Weight: weight.value,
+            Screen: screen.value,
+            Frequence: frequence.value,
+            VideoCart: videoCart.value,
+            ProcessorType: processorType.value,
+            Manufacture: manufacture.value,
+            BitDepth: bitDepth.value,
+            id: id,
+        };
+        return comp;
     }
-    else{
-        const comp = new Server(amount.value, power.value);
+    else {
+        const comp = {
+            Amount: amount.value,
+            Power: power.value,
+            Frequence: frequence.value,
+            VideoCart: videoCart.value,
+            ProcessorType: processorType.value,
+            Manufacture: manufacture.value,
+            BitDepth: bitDepth.value,
+            id: id,
+        };
+        return comp;
     }
-    comp.setFrequence(frequence.value);
-    comp.setVideoCart(videoCart.value);
-    comp.setProcessorType(processorType.value);
-    comp.setManufacture(manufacture.value);
-    comp.setBitDepth(bitDepth.value);
-    return comp;
 }
+
 
 
 function reset(){

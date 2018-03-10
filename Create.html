@@ -64,11 +64,11 @@
 <script src="IndexTable.js"></script>
 <script src="Validation.js"></script>
 <script type="text/javascript">
-    var selectedValue = document.getElementById("selectBox");
+    var selectedValuea = document.getElementById("selectBox");
     changeType();
     function saveComputer(form){
-       if(validation(form, selectedValue.options[selectBox.selectedIndex].value))
-        Save(selectedValue.options[selectBox.selectedIndex].value);
+       if(validation(form, selectedValuea.options[selectBox.selectedIndex].value))
+        Save(selectedValuea.options[selectBox.selectedIndex].value);
     }
     function onInvalid(msg) {
         alert(msg);

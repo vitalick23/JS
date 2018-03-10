@@ -1,6 +1,6 @@
 function validation (form, type) {
     const elems = form.elements;
-    const ret = true;
+    let ret = true;
 
     const validvideoCart = document.getElementById("validVideoCart");
     const validProcessortypy = document.getElementById("validProcessorType");
