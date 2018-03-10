@@ -4,10 +4,16 @@
         border-collapse: collapse;
     }
 </style>
+
+<div >
+    Search:<div id="searchDiv"></div><input id="search" name="search" class="form-control" type="text" >
+    <input type="button" onclick="Search()"   value="Search">
+    <input type="button" value="Create" onClick="window.location='Create.html'">
+<div> <br/>
 <center>
     <div id="mytable"></div>
     <br/>
-    <input type="button" style="margin-left: 10%" value="Create" onClick="window.location='Create.html'">
+
 </center>
 <script src="Computer.js"></script>
 <script src="CreateAndUpdate.js"></script>
@@ -15,4 +21,11 @@
 <script src="Server.js"></script>
 <script src="Request.js"></script>
 <script src="IndexTable.js"></script>
-<script type="text/javascript">getComputer();</script>
+<script src="Validation.js"></script>
+<script src="SearchComputer.js"></script>
+<script type="text/javascript">
+    getComputer();
+    function Search() {
+        SearchComputer(document.getElementById("search").value)
+    }
+</script>

@@ -1,11 +1,33 @@
 "use strict"
 
-function getComputer(){
-    var func = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var obj = JSON.parse(this.responseText);
-            addTable(obj);
-        };};
+function getComputer(search = ""){
+    if(search == "") {
+        var func = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var obj = JSON.parse(this.responseText);
+                addTable(obj);
+            };
+        };
+    }
+    else {
+        var func = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var obj = JSON.parse(this.responseText);
+                let index = 0;
+                for(index; index < obj.length;)
+                {
+                    if(obj[index].ProcessorType == search) {
+                        index++;
+                    }
+                    else {
+                        obj.splice(index, 1);
+                    }
+                }
+                addTable(obj);
+            };
+        };
+
+    }
     GetAll(func);
 }
 
@@ -61,11 +83,11 @@ function addTable(stock) {
         const link3 = document.createElement("a");
         const linkText3 = document.createTextNode(" Update ");
         link.title = "Details";
-        link.href = "Details.html?id=" + stock[i][key] ;
+        link.href = "Details.html?id=" + stock[i]["id"] ;
         link2.href = "javascript:Deletes("+ stock[i]["id"] + ");";
         link2.title = "Delete";
         link3.title = "Update";
-        link3.href = "Update.html?id=" + stock[i][key];
+        link3.href = "Update.html?id=" + stock[i]["id"];
 
         link.appendChild(linkText);
         link2.appendChild(linkText2);
