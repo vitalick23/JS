@@ -83,6 +83,7 @@ function GenerateComp(type){
             BitDepth: bitDepth.value,
             id: id,
         };
+
         return comp;
     }
     else {

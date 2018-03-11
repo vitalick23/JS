@@ -12,5 +12,9 @@ function searchComp(obj,str) {
 }
 
 function ClearTable() {
-    var dd = document.getElementById("mytable").innerHTML ="";
+        document.getElementById("mytable").innerHTML ="";
+}
+
+function iter(comp){
+    comp.next();
 }

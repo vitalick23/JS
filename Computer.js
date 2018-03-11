@@ -11,6 +11,24 @@ class Computer {
         this.bitDepth = bit;
     }
 
+    [Symbol.iterator]() {
+        let _this = this;
+        let keys = null;
+        let index = 0;
+
+        return {
+            next: function() {
+                if (keys === null) {
+                    keys = Object.keys(_this).sort();
+                }
+
+                return {
+                    value: keys[index],
+                    done: index++ >= keys.length
+                };
+            }
+        }
+    }
 
     get ProcessorType() {
         return this.processorType;
