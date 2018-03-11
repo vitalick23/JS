@@ -27,7 +27,7 @@ function validation (form, type) {
 
     resetError(validFrequence);
 
-    if(!funvalidFrequence(elems.Frequence.value)) {
+    if(!funvalidFrequence(elems.Frequence.value) || elems.Frequence.value.trim() =='') {
         showError(validFrequence, 'Only number and last = G or g Exemple: 123G');
         ret = false;
     }
@@ -74,10 +74,10 @@ function validation (form, type) {
     }
     else {
         resetError(validweight);
-        if(elems.weight.value == "" || elems.weight.value.trim() =='')
+        if(!funvalidWeight(elems.weight.value) || elems.weight.value.trim() =='')
         {
             ret = false;
-            showError(validweight, 'Empty');
+            showError(validweight, 'Only number and last =  g Exemple: 1000g');
         }
 
         resetError(validScreen);
@@ -125,4 +125,16 @@ function validNumber(str,count)
         if (str[i] < '0' || str[i] > '9') return false;
     }
     return true;
+}
+
+function funvalidWeight(str) {
+    if(str.length <= '1') return false;
+    if( str[str.length - 1] === 'g') {
+
+        for (var i = 0; i < str.length - 1; i++) {
+            if (str[i] < '0' || str[i] > '9') return false;
+        }
+        return true;
+    }
+    return false;
 }

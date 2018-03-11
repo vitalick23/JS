@@ -36,7 +36,7 @@ function getParam(name) {
 }
 
 function changeType() {
-    var types = selectedValue.options[selectBox.selectedIndex].value;
+    var types = selectedValue.options[document.getElementById("selectBox").selectedIndex].value;
     if(types == "0"){
         document.getElementById("amountDiv").style.display='none';
         document.getElementById("powerDiv").style.display='none';
