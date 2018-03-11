@@ -8,44 +8,35 @@ const [
 ] = [];
 
 const url = "http://localhost:3000/posts";
-function Get(id, func){
+async function Get(id, func){
     let options = {
         method: GET
     };
-    const URL = url +'/'+id;
-    fetch(URL, options)
-        .then(function(response) {
-            console.log(response.status);
-            if (response.status != 200) {
-                throw new Error(`${response.status}: ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(function(json) {
-            func(json);
-        })
-        .catch(console.log);
+    try {
+        const URL = url + '/' + id;
+        const response = await fetch(URL, options);
+        const obj = await response.json();
+        func(obj);
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 
-function GetAll(func){
-    let options = {
+async function GetAll(func){
+    const options = {
         method: GET
     };
-    fetch(url, options)
-        .then(function(response) {
-            console.log(response.status);
-            if (response.status != 200) {
-                throw new Error(`${response.status}: ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(function(json) {
-            func(json);
-        })
-        .catch(console.log);
+    try {
+        const response = await fetch(url, options);
+        const obj = await response.json();
+        func(obj);
+    } catch (err) {
+        console.log(err);
+    }
 };
 
-function Post(computer){
+async function Post(computer){
     let options = {
         method: POST,
         headers: {
@@ -53,17 +44,15 @@ function Post(computer){
         },
         body: JSON.stringify(computer)
     }
-    fetch(url, options)
-        .then(function(response) {
-            if (response.status != 200) {
-                throw new Error(`${response.status}: ${response.statusText}`);
-            }
-        })
-        .catch(console.log);
+    try {
+        await fetch(url, options);
+    } catch (err) {
+        console.log(err);
+    }
     alert("Saved");
 }
 
-function Put(id, computer){
+async function Put(id, computer){
     let options = {
         method: PUT,
         headers: {
@@ -72,31 +61,27 @@ function Put(id, computer){
         body: JSON.stringify(computer)
     }
     const URL = url +'/'+id;
-    fetch(URL, options)
-        .then(function(response) {
-            if (response.status != 200) {
-                throw new Error(`${response.status}: ${response.statusText}`);
-            }
-        })
-        .catch(console.log);
+    try {
+        await fetch(URL, options);
+    } catch (err) {
+        console.log(err);
+    }
     alert("Edit");
 }
 
-function Delete(id, func) {
+async function Delete(id, func) {
     if (confirm("Delete this computer?")) {
         let options = {
             method: DELETE
         };
         const URL = url + '/' + id;
-        fetch(URL, options)
-            .then(function (response) {
-                if (response.status != 200) {
-                    throw new Error(`${response.status}: ${response.statusText}`);
-                }
-                ClearTable();
-                getComputer();
-            })
-            .catch(console.log);
+        try {
+            await fetch(URL, options);
+            ClearTable();
+            getComputer();
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
