@@ -84,3 +84,18 @@ function addTable(stock) {
     }
     myTableDiv.appendChild(table)
 }
+
+
+if (!!window.Worker) {
+    let worker = new Worker('Worker.js');
+    let delay = new Date() - new Date(localStorage.getItem('lastUpdate'));
+    if (delay < 60000) {
+        worker.postMessage(60000 - delay);
+    } else {
+        worker.postMessage(0);
+    };
+    worker.onmessage = function(e) {
+        document.getElementById('count').value = e.data;
+        localStorage.setItem('lastUpdate', new Date());
+    };
+}

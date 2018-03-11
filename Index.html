@@ -14,6 +14,10 @@
     <div id="mytable"></div>
     <br/>
 </center>
+
+<div id="workerDiv" style="margin-left: 59%">
+    <label>Object count:  </label><input type="text" id="count" disabled="disabled"> </input>
+</div>
 <script src="Computer.js"></script>
 <script src="CreateAndUpdate.js"></script>
 <script src="ultrabook.js"></script>
@@ -27,7 +31,7 @@
     function Search() {
         const a = document.getElementById("search").value;
         if(a == "")
-        SearchComputer("123")
+        SearchComputer();
         else SearchComputer(a)
     }
 </script>

@@ -99,3 +99,4 @@ function Delete(id, func) {
             .catch(console.log);
     }
 }
+
