@@ -25,6 +25,12 @@ function validation (form, type) {
         showError(validProcessortypy, 'Empty');
     }
 
+    if(!funvalidpro(elems.processorType.value))
+    {
+        ret = false;
+        showError(validProcessortypy, 'no number');
+    }
+
     resetError(validFrequence);
 
     if(!funvalidFrequence(elems.Frequence.value) || elems.Frequence.value.trim() =='') {
@@ -80,11 +86,33 @@ function validation (form, type) {
             showError(validweight, 'Only number and last =  g Exemple: 1000g');
         }
 
+        if(!funvalid(elems.weight.value))
+        {
+            ret = false;
+            showError(validweight, 'no 0');
+        }
+
+        if(elems.weight.value === '-')
+        {
+            ret = false;
+            showError(validweight, 'no - ');
+        }
+        if(elems.weight.value === '0')
+        {
+            ret = false;
+            showError(validweight, 'no 0');
+        }
+
         resetError(validScreen);
         if(!funvalidScreen(elems.screen.value))
         {
             ret = false;
             showError(validScreen, 'Only number and last = PX or px Exemple: 123PX or 123px');
+        }else
+        if(!funvalid(elems.screen.value))
+        {
+            ret = false;
+            showError(validScreen, 'no 0');
         }
     }
     return ret;
@@ -129,6 +157,7 @@ function validNumber(str,count)
 
 function funvalidWeight(str) {
     if(str.length <= '1') return false;
+
     if( str[str.length - 1] === 'g') {
 
         for (var i = 0; i < str.length - 1; i++) {
@@ -137,4 +166,29 @@ function funvalidWeight(str) {
         return true;
     }
     return false;
+}
+
+function funvalid(str) {
+    let res = true;
+    let rest = true;
+    for(let i = 0; i<str.length;i++)
+    {
+        if(res && rest) {
+            if (str[i] === '0') res = false;
+            else if (str[i] === ' ') res = true;
+            else rest = false
+        }
+    }
+    return res;
+}
+
+function funvalidpro(str) {
+    var res = true;
+    for(let i = 0; i < str.length; i++){
+        if(str[i] != ' ')
+            if(str[i] < 'a' || str[i] > 'z')
+                if(str[i] < 'A'|| str > 'Z')
+                    res= false;
+    }
+    return res;
 }

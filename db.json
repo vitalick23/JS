@@ -49,6 +49,16 @@
       "Manufacture": "123",
       "BitDepth": "123",
       "id": 8
+    },
+    {
+      "Weight": "123g",
+      "Screen": "120px",
+      "Frequence": "123g",
+      "VideoCart": "qwe",
+      "ProcessorType": "wer",
+      "Manufacture": "123",
+      "BitDepth": "123",
+      "id": 9
     }
   ],
   "comments": [],
